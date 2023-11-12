@@ -1,0 +1,16 @@
+{
+  "name": "free-palestine-banner",
+  "author": "Zeeshan Adnan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": ["free-palestine-banner", "#FreePalestine"],
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
