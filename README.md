@@ -6,7 +6,7 @@ This is a small javascript library to add a simple banner in your website to sho
 
 Just use the below code in your website with already pre compiled js files
 ```html
-<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.0.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.1.js"></script>
 <script>
   freePalestine.createBanner({position: "bottom-right"});
 </script>
