@@ -1,3 +1,5 @@
+> "Even the birds in Gaza know the story.. they have two wings and do not migrate!" - Youssef Al-Damouki
+
 # 🇵🇸 FreePalestine Banner
 
 This is a small javascript library to add a simple banner in your website to show your support for the palestine people, their freedom, their dreams, their life.
