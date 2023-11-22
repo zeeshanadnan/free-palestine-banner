@@ -17,4 +17,4 @@ Currently we just have one simple config to choose position of the banner. Use `
 
 ## Preview
 
-[[img/free-palestine.png]]
+![Screenshot](img/free-palestine.png)
