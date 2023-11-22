@@ -10,7 +10,7 @@ export function createBanner(config) {
     
     freePalestine.classList.add('free-palestine-banner');
     
-    let textContent = document.createTextNode("🇵🇸 #FreePalestine")
+    let textContent = document.createTextNode("🇵🇸 #FreePalestine");
     
     freePalestine.appendChild(textContent);
 
@@ -36,7 +36,7 @@ export function createBanner(config) {
         }
     }
 
-    freePalestine.addEventListener("click", redirectToCharityPage)
+    freePalestine.addEventListener("click", redirectToCharityPage);
 
 
     window.addEventListener('load', function () {
@@ -47,7 +47,7 @@ export function createBanner(config) {
 }
 
 function redirectToCharityPage() {
-    window.open("https://www.islamic-relief.org.uk/giving/appeals/palestine/", "_blank")
+    window.open("https://www.islamic-relief.org.uk/giving/appeals/palestine/", "_blank");
 }
 
 function getCSS() {
