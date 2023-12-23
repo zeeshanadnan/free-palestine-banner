@@ -1,17 +1,18 @@
-const path = require('path');
-const pkg = require('./package.json');
+const path = require("path");
+const pkg = require("./package.json");
 
 const buildFileName = `free-palestine-banner-${pkg.version}.js`;
 
 module.exports = {
-  entry: './src/index.js',
+  mode: "production",
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, "dist"),
     filename: buildFileName,
-    globalObject: 'this',
+    globalObject: "this",
     library: {
-      name: 'freePalestine',
-      type: 'umd',
+      name: "freePalestine",
+      type: "umd",
     },
   },
 };

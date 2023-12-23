@@ -2,20 +2,32 @@
 
 # 🇵🇸 FreePalestine Banner
 
-This is a small javascript library to add a simple banner in your website to show your support for the palestine people, their freedom, their dreams, their life.
+This is a small javascript library to add a simple banner in your website to show your support for the people of Palestine, their freedom, their dreams, their life.
 
 ## ✏️ How to use
 
 Just use the below code in your website with already pre compiled js files
+
 ```html
-<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.1.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.2.js"></script>
 <script>
-  freePalestine.createBanner({position: "bottom-right"});
+  freePalestine.createBanner(
+    {
+      position: "free-palestine-position-top",
+      statement: "We stand in solidarity with the people of palestine.",
+      externalLink: "https://blog.paulbiggar.com/i-cant-sleep/"}
+    }
+  );
 </script>
 ```
 
-Currently we just have one simple config to choose position of the banner. Use `top-left` , `top-right`, `bottom-right` or `bottom-left` to choose your banner position.
+## Config
 
+| Parameter      | Type         | Description                                                          |
+| :------------- | :----------- | :------------------------------------------------------------------- |
+| `position`     | `string`     | Sets where to put the banner. Currently either top or bottom         |
+| `statement`    | `string`     | Put a custom message to show support or will be set to a default one |
+| `externalLink` | `url string` | If you want to link to some external resource url can put here       |
 
 ## Preview
 

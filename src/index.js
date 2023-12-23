@@ -1,96 +1,115 @@
 export function createBanner(config) {
+  const style = document.createElement("style");
+  style.type = "text/css";
+  style.innerHTML = getCSS();
 
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.innerHTML = getCSS();
+  document.getElementsByTagName("head")[0].appendChild(style);
 
-    document.getElementsByTagName('head')[0].appendChild(style);
+  let freePalestine = document.createElement("div");
 
-    let freePalestine = document.createElement("div");
-    
-    freePalestine.classList.add('free-palestine-banner');
-    
-    let textContent = document.createTextNode("🇵🇸 #FreePalestine");
-    
-    freePalestine.appendChild(textContent);
+  freePalestine.classList.add("free-palestine-banner");
 
-    switch (config.position) {
-        case "top-right": {
-            freePalestine.classList.add('free-palestine-top-right');
-            break;
-        }
-        case "top-left": {
-            freePalestine.classList.add('free-palestine-top-left');
-            break;
-        }
-        case "bottom-right": {
-            freePalestine.classList.add('free-palestine-bottom-right');
-            break;
-        }
-        case "bottom-left": {
-            freePalestine.classList.add('free-palestine-bottom-left');
-            break;
-        }
-        default: {
-            freePalestine.classList.add('free-palestine-bottom-right');
-        }
-    }
+  let slogan = document.createElement("span");
+  slogan.classList.add("free-paestine-banner-text-color-red");
+  slogan.innerHTML = "&#x1f1f5;&#x1f1f8; #FreePalestine.";
+  freePalestine.appendChild(slogan);
 
-    freePalestine.addEventListener("click", redirectToCharityPage);
+  let additionalStatement = document.createElement("span");
+  additionalStatement.classList.add("free-paestine-banner-text-color-green");
+  let additionalStatementText =
+    "Lets stand together in solidarity for the people of Palestine.";
+  if (!isBlankString(config.statement)) {
+    additionalStatementText = config.statement;
+  }
+  let additionalStatementTextNode = document.createTextNode(
+    additionalStatementText
+  );
+  additionalStatement.classList.add("free-paestine-banner-text-padding-left");
+  additionalStatement.appendChild(additionalStatementTextNode);
 
-
-    window.addEventListener('load', function () {
-        document.body.appendChild(freePalestine);
+  if (isValidUrl(config.externalLink)) {
+    additionalStatement.classList.add("free-paestine-banner-link");
+    additionalStatement.addEventListener("click", function () {
+      window.open(config.externalLink, "_blank");
     });
+  }
 
+  freePalestine.appendChild(additionalStatement);
 
+  switch (config.position) {
+    case "top": {
+      freePalestine.classList.add("free-palestine-banner-position-top");
+      break;
+    }
+    case "bottom": {
+      freePalestine.classList.add("free-palestine-banner-position-bottom");
+      break;
+    }
+    default: {
+      freePalestine.classList.add("free-palestine-banner-position-top");
+    }
+  }
+
+  window.addEventListener("load", function () {
+    document.body.appendChild(freePalestine);
+  });
 }
 
-function redirectToCharityPage() {
-    window.open("https://www.islamic-relief.org.uk/giving/appeals/palestine/", "_blank");
+function isBlankString(str) {
+  return !str || /^\s*$/.test(str);
+}
+
+function isValidUrl(urlString) {
+  let url;
+  try {
+    url = new URL(urlString);
+  } catch (e) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
 }
 
 function getCSS() {
-    return `.free-palestine-banner {
-        cursor: pointer;
-        font-size: 22px;
-        color: black;
-        margin: 17px;        
-        font-weight: bold;
-        background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 3px, transparent 3px) 0% 0%/10px 10px no-repeat,
-            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 3px, transparent 3px) 100% 0%/10px 10px no-repeat,
-            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 3px, transparent 3px) 0% 100%/10px 10px no-repeat,
-            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 3px, transparent 3px) 100% 100%/10px 10px no-repeat,
-            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 14px) calc(100% - 20px) no-repeat,
-            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 14px) no-repeat,
-            conic-gradient(#ffffff 0%, #149954 27%, #000000 59%, #e4312b 100%);
-        border-radius: 10px;
-        padding: 12px 30px;
-        box-sizing: border-box;
+  return `
+    .free-palestine-banner {
+        --tw-bg-opacity: 1;
+        background-color: rgb(47 47 47 / var(--tw-bg-opacity));
+        text-align: center;
+        color: white;
+        position: absolute;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1.25rem;
     }
-    
-    .free-palestine-top-right {
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
-    
-    .free-palestine-top-left {
-        position: fixed;
-            top: 0;
-            left: 0;
-    }
-    
-    .free-palestine-bottom-right {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-    }
-    
-    .free-palestine-bottom-left {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-    }`;
-}
 
+    .free-paestine-banner-text-color-red {
+        color: #E4312b;
+    }
+
+    .free-paestine-banner-text-color-green {
+        color: #149954;
+      }
+
+    .free-paestine-banner-link {
+        text-decoration: underline;        
+    }
+
+    .free-paestine-banner-link:hover {
+        text-decoration: underline;
+        color: blue;
+        cursor: pointer;        
+    }
+
+    .free-paestine-banner-text-padding-left {
+        padding-left: 0.2rem;
+    }
+
+    .free-palestine-banner-position-top {
+        top: 0px;
+    }
+
+    .free-palestine-banner-position-bottom {
+        bottom: 0px;
+    }
+    `;
+}
