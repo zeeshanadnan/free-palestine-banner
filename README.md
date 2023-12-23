@@ -11,13 +11,11 @@ Just use the below code in your website with already pre compiled js files
 ```html
 <script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.2.js"></script>
 <script>
-  freePalestine.createBanner(
-    {
-      position: "free-palestine-position-top",
-      statement: "We stand in solidarity with the people of palestine.",
-      externalLink: "https://blog.paulbiggar.com/i-cant-sleep/"}
-    }
-  );
+  freePalestine.createBanner({
+    position: "free-palestine-position-top",
+    statement: "We stand in solidarity with the people of palestine.",
+    externalLink: "https://blog.paulbiggar.com/i-cant-sleep/",
+  });
 </script>
 ```
 
