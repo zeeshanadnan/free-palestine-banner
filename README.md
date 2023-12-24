@@ -21,11 +21,11 @@ Just use the below code in your website with already pre compiled js files
 
 ## Config
 
-| Parameter      | Type         | Description                                                                                                                 |
-| :------------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| `position`     | `string`     | Sets where to put the banner. Currently either top or bottom [`free-palestine-position-top`, `free-palestine-position-top`] |
-| `statement`    | `string`     | Put a custom message to show support or will be set to a default one                                                        |
-| `externalLink` | `url string` | If you want to link to some external resource url can put here                                                              |
+| Parameter      | Type         | Description                                                                                                              |
+| :------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `position`     | `string`     | Sets where to put the banner. Either top or bottom ex: [`free-palestine-position-top`, `free-palestine-position-bottom`] |
+| `statement`    | `string`     | Put a custom message to show support or will be set to a default one                                                     |
+| `externalLink` | `url string` | If you want to link to some external resource url can put here                                                           |
 
 ## Preview
 
