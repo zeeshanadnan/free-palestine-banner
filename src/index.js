@@ -16,7 +16,6 @@ function addCSSStyles() {
   const style = document.createElement("style");
   style.type = "text/css";
   style.innerHTML = getCSS();
-
   document.getElementsByTagName("head")[0].appendChild(style);
 }
 
@@ -59,8 +58,7 @@ function getCSS() {
     } 
     
     .free-palestine-banner {
-        --tw-bg-opacity: 1;
-        background-color: rgb(47 47 47 / var(--tw-bg-opacity));
+        background-color: rgb(47 47 47);
         text-align: center;
         color: white;
         position: absolute;
