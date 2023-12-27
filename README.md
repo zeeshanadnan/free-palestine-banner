@@ -9,10 +9,9 @@ This is a small javascript library to add a simple banner in your website to sho
 Just use the below code in your website with already pre compiled js files
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.2.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/zeeshanadnan/free-palestine-banner@main/dist/free-palestine-banner-1.0.0.js"></script>
 <script>
   freePalestine.createBanner({
-    position: "top",
     statement: "We stand in solidarity with the people of palestine.",
     externalLink: "https://blog.paulbiggar.com/i-cant-sleep/",
   });
@@ -21,12 +20,16 @@ Just use the below code in your website with already pre compiled js files
 
 ## Config
 
-| Parameter      | Type         | Description                                                              |
-| :------------- | :----------- | :----------------------------------------------------------------------- |
-| `position`     | `string`     | Sets where to put the banner. Either top or bottom ex: [`top`, `bottom`] |
-| `statement`    | `string`     | Put a custom statement or will be set to a default one                   |
-| `externalLink` | `url string` | If you want to link to some external resource url can put here           |
+| Parameter      | Type         | Description                                                    |
+| :------------- | :----------- | :------------------------------------------------------------- |
+| `statement`    | `string`     | Put a custom statement or will be set to a default one         |
+| `externalLink` | `url string` | If you want to link to some external resource url can put here |
 
 ## Preview
 
-![Screenshot](img/free-palestine.png)
+![Screenshot](img/preview-1.png)
+![Screenshot](img/preview-2.png)
+
+## Known issue
+
+If your website have absolute positioned content at top will not probably work correctly.

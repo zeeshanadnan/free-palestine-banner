@@ -7,14 +7,6 @@ export function createBanner(config) {
 
   addAdditionalStatement(freePalestine, config);
 
-  if (isValidBannerPosition(config.position)) {
-    freePalestine.classList.add(
-      `free-palestine-banner-position-${config.position}`
-    );
-  } else {
-    freePalestine.classList.add("free-palestine-banner-position-top");
-  }
-
   window.addEventListener("load", function () {
     document.body.appendChild(freePalestine);
   });
@@ -61,6 +53,11 @@ function addAdditionalStatement(freePalestine, config) {
 
 function getCSS() {
   return `
+    
+    body {
+      margin-top: 45px;  
+    } 
+    
     .free-palestine-banner {
         --tw-bg-opacity: 1;
         background-color: rgb(47 47 47 / var(--tw-bg-opacity));
@@ -70,6 +67,9 @@ function getCSS() {
         width: 100%;
         padding: 0.5rem;
         font-size: 1.25rem;
+        top: 0px;
+        left: 0px;
+        right: 0px;       
     }
 
     .free-paestine-banner-text-color-red {
@@ -93,19 +93,7 @@ function getCSS() {
     .free-paestine-banner-text-padding-left {
         padding-left: 0.2rem;
     }
-
-    .free-palestine-banner-position-top {
-        top: 0px;
-    }
-
-    .free-palestine-banner-position-bottom {
-        bottom: 0px;
-    }
     `;
-}
-
-function isValidBannerPosition(position) {
-  return position === "top" || position === "bottom";
 }
 
 function isBlankString(str) {
