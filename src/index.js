@@ -1,27 +1,50 @@
 export function createBanner(config) {
+  addCSSStyles();
+
+  const freePalestine = document.createElement("div");
+
+  addSlogan(freePalestine);
+
+  addAdditionalStatement(freePalestine, config);
+
+  if (isValidBannerPosition(config.position)) {
+    freePalestine.classList.add(
+      `free-palestine-banner-position-${config.position}`
+    );
+  } else {
+    freePalestine.classList.add("free-palestine-banner-position-top");
+  }
+
+  window.addEventListener("load", function () {
+    document.body.appendChild(freePalestine);
+  });
+}
+
+function addCSSStyles() {
   const style = document.createElement("style");
   style.type = "text/css";
   style.innerHTML = getCSS();
 
   document.getElementsByTagName("head")[0].appendChild(style);
+}
 
-  let freePalestine = document.createElement("div");
-
+function addSlogan(freePalestine) {
   freePalestine.classList.add("free-palestine-banner");
-
-  let slogan = document.createElement("span");
+  const slogan = document.createElement("span");
   slogan.classList.add("free-paestine-banner-text-color-red");
   slogan.innerHTML = "&#x1f1f5;&#x1f1f8; #FreePalestine.";
   freePalestine.appendChild(slogan);
+}
 
-  let additionalStatement = document.createElement("span");
+function addAdditionalStatement(freePalestine, config) {
+  const additionalStatement = document.createElement("span");
   additionalStatement.classList.add("free-paestine-banner-text-color-green");
-  let additionalStatementText =
-    "Lets stand together in solidarity for the people of Palestine.";
-  if (!isBlankString(config.statement)) {
-    additionalStatementText = config.statement;
-  }
-  let additionalStatementTextNode = document.createTextNode(
+
+  const additionalStatementText = isBlankString(config.statement)
+    ? "Lets stand together in solidarity for the people of Palestine."
+    : config.statement;
+
+  const additionalStatementTextNode = document.createTextNode(
     additionalStatementText
   );
   additionalStatement.classList.add("free-paestine-banner-text-padding-left");
@@ -33,40 +56,7 @@ export function createBanner(config) {
       window.open(config.externalLink, "_blank");
     });
   }
-
   freePalestine.appendChild(additionalStatement);
-
-  switch (config.position) {
-    case "top": {
-      freePalestine.classList.add("free-palestine-banner-position-top");
-      break;
-    }
-    case "bottom": {
-      freePalestine.classList.add("free-palestine-banner-position-bottom");
-      break;
-    }
-    default: {
-      freePalestine.classList.add("free-palestine-banner-position-top");
-    }
-  }
-
-  window.addEventListener("load", function () {
-    document.body.appendChild(freePalestine);
-  });
-}
-
-function isBlankString(str) {
-  return !str || /^\s*$/.test(str);
-}
-
-function isValidUrl(urlString) {
-  let url;
-  try {
-    url = new URL(urlString);
-  } catch (e) {
-    return false;
-  }
-  return url.protocol === "http:" || url.protocol === "https:";
 }
 
 function getCSS() {
@@ -112,4 +102,22 @@ function getCSS() {
         bottom: 0px;
     }
     `;
+}
+
+function isValidBannerPosition(position) {
+  return position === "top" || position === "bottom";
+}
+
+function isBlankString(str) {
+  return !str || /^\s*$/.test(str);
+}
+
+function isValidUrl(urlString) {
+  let url;
+  try {
+    url = new URL(urlString);
+  } catch (e) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
 }
