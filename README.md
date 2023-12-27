@@ -27,7 +27,12 @@ Just use the below code in your website with already pre compiled js files
 
 ## Preview
 
+### Smaple 1:
+
 ![Screenshot](img/preview-1.png)
+
+### Smaple 2:
+
 ![Screenshot](img/preview-2.png)
 
 ## Known issue
