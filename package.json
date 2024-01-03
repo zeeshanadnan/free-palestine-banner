@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest --env=jsdom"
   },
   "keywords": [
     "free-palestine-banner",
@@ -13,7 +14,11 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^23.0.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "dependencies": {}
 }
